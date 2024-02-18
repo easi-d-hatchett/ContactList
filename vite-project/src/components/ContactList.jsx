@@ -10,20 +10,21 @@ const dummyContacts = [
 
 export default function ContactList() { 
     const [contacts, setContacts] = useState(dummyContacts);
-    useEffect(()=>{useEffect(() => {
+    useEffect(() => {
         async function fetchContacts() {
-          try { const response = await fetch(
-            "https://jsonplace-univclone.herokuapp.com/users"
-          );
-          const result = await response.json();
-          setContacts(result);
-            
+          try {
+            const response = await fetch(
+                "https://jsonplace-univclone.herokuapp.com/users"
+              );
+              const result = await response.json();
+              setContacts(result);
           } catch (error) {
             console.error(error);
           }
         }
         fetchContacts()
-      }, []);},[])
+      }, []);
+     
 
   return ( 
         <table>
